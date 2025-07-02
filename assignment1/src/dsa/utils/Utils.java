@@ -83,4 +83,37 @@ public class Utils {
         return strings;
     }
 
+    public static double[][] readDoubleMatrix (Scanner scanner, int row, int col){
+        double[][] matrix = new double[row][col];
+        for ( int r = 0; r < row; r++ ) {
+            while (true) {
+                System.out.print("Input " + col + " numbers (comma or space separated)... ROW_" + r + ": ");
+                String numbers_input = scanner.nextLine();
+                String[] parts = numbers_input.trim().split("[,\\s]+");
+
+                if (parts.length != col) {
+                    System.out.println(" Please enter exactly " + col + " numbers.");
+                    continue;
+                }
+                boolean valid = true;
+                for (int c = 0; c < col; c++) {
+                    try {
+                        matrix[r][c] = Integer.parseInt(parts[c]);
+                    } catch (NumberFormatException e) {
+                        System.out.println("'" + parts[c] + "' is not a valid integer.");
+                        valid = false;
+                        break;
+                    }
+                }
+                if (valid) {
+                    break;
+                }
+            }
+        }
+        System.out.println("The matrix you entered: ");
+        for(int r = 0; r < row; r++){
+            System.out.println(" ROW_" + r + " " + Arrays.toString(matrix[r]));
+        }
+        return matrix;
+    }
 }

@@ -79,6 +79,15 @@ public class Algorithms {
         return num * factorial(num - 1);
     }
 
+//    public static double[][] MatrixMultiplication (double[][] matrixA, double[][] matrixB){
+//        int rowA = matrixA.length;
+//        int colA = matrixA[0].length;
+//        int rowB = matrixB.length;
+//        int colB = matrixB[0].length;
+//        return
+//
+//    }
+
 
 
 }

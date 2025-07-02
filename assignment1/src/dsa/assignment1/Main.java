@@ -100,37 +100,13 @@ public class Main {
                     System.out.println("The factorial of " + number + " is " + result);
             }
         }
-    }
-
-    public static int[] readIntArray(Scanner scanner, int size) {
-        int[] numbers = new int[size];
-
-        while (true) {
-            System.out.print("\n Input " + size + " numbers (comma or space separated): ");
-            String numbers_input = scanner.nextLine();
-            String[] parts = numbers_input.trim().split("[,\\s]+");
-
-            if (parts.length != size) {
-                System.out.println(" Please enter exactly " + size + " numbers.");
-                continue;
-            }
-
-            boolean valid = true;
-            for (int i = 0; i < size; i++) {
-                try {
-                    numbers[i] = Integer.parseInt(parts[i]);
-                } catch (NumberFormatException e) {
-                    System.out.println(parts[i] + "' is not a valid integer.");
-                    valid = false;
-                    break;
-                }
-            }
-            if (valid) {
-                System.out.println(" Parsed: " + Arrays.toString(numbers));
-                break;
-            }
+        else if (input == 4){
+            prompt = "Enter the size for the row of the matrix:";
+            int row = Utils.readInt(scanner, prompt, 1, 5, false);
+            prompt = "Enter the size for the column of the matrix:";
+            int col = Utils.readInt(scanner, prompt, 1, 5, false);
+            double[][] matrix = Utils.readDoubleMatrix(scanner, row, col);
+            System.out.print("Obtained the matrix");
         }
-        return numbers;
     }
-
 }
