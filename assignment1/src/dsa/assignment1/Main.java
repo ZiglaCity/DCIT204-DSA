@@ -103,7 +103,7 @@ public class Main {
             while ( true){
                 prompt = "Enter the size for the row of MatrixA:";
                 int row1 = Utils.readInt(scanner, prompt, 1, 5, false);
-                prompt = "Enter the size for the column of the matrixB:";
+                prompt = "Enter the size for the column of the matrixA:";
                 int col1 = Utils.readInt(scanner, prompt, 1, 5, false);
                 double[][] matrixA = Utils.readDoubleMatrix(scanner, row1, col1);
 
@@ -126,6 +126,25 @@ public class Main {
                     }
                     break;
                 }
+            }
+        }
+        else if (input == 5){
+            prompt = "Enter the size for the row of MatrixA:";
+            int row = Utils.readInt(scanner, prompt, 1, 10, false);
+            prompt = "Enter the size for the column of the matrixA:";
+            int col = Utils.readInt(scanner, prompt, 1, 10, false);
+            double[][] A = Utils.readDoubleMatrix(scanner, row, col);
+
+            System.out.print("Input for the matrix b:");
+            int[] b = Utils.readIntArray(scanner, row);
+            try {
+                double[] solution = Algorithms.GaussianElimination(A, b);
+                System.out.println("Solution:");
+                for (int i = 0; i < solution.length; i++) {
+                    System.out.printf("x%d = %.4f\n", i + 1, solution[i]);
+                }
+            } catch (ArithmeticException e) {
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }
