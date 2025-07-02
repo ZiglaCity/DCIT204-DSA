@@ -1,0 +1,127 @@
+checkout the different between a public function and public static function
+
+The list of the algorithms;
+1. Find Max
+2. Element Uniqueness (Integers)
+3. Element Uniqueness (Strings/Characters)
+4. Matrix Multiplication
+5. Gaussian Elimination
+6. Counting Binary Digits (Iterative)
+7. Counting Binary Digits (Recursive)
+8. Factorial (Recursive)
+9. Sequential Search (Integers)
+10.Sequential Search (Strings/Characters)
+99.Exit
+
+done with; 1, 2, 6, 7, 8, 9, 99, 3,
+todo: 4, 5, 10
+the algorithms that uses string array;
+Element Uniqueness Problem
+sequential search when user searches for a character or string
+
+
+
+3. Matrix Multiplication
+Flow Chart
+1.	Start → Triple nested loops to compute dot product.
+2.	Initialize C[i][j] to 0.
+3.	Multiply and accumulate products → Store in C[i][j].
+4.	End → Return C.
+Algorithm
+1.	Initialize result matrix C with zeros.
+2.	For each row in A and column in B, compute dot product.
+3.	Store result in C[i][j].
+public class MatrixMultiplication {
+    public static double[][] multiply(double[][] A, double[][] B) {
+        int n = A.length;
+        double[][] C = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                C[i][j] = 0.0;
+                for (int k = 0; k < n; k++) {
+                    C[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+        return C;
+    }
+
+    public static void main(String[] args) {
+        double[][] A = {{1, 2}, {3, 4}};
+        double[][] B = {{5, 6}, {7, 8}};
+        double[][] C = multiply(A, B);
+        System.out.println("Result: " + Arrays.deepToString(C));
+    }
+}
+FUNCTION multiply(A, B)
+    FOR i FROM 0 TO n-1 DO
+        FOR j FROM 0 TO n-1 DO
+            C[i][j] ← 0.0
+            FOR k FROM 0 TO n-1 DO
+                C[i][j] ← C[i][j] + A[i][k] * B[k][j]
+    RETURN C
+Analysis
+•	All Cases: O(n³) (three nested loops).
+
+4. Gaussian Elimination
+Flow Chart
+1.	Start → Nested loops to perform row operations.
+2.	For each pivot, eliminate column entries below it.
+3.	End → Upper triangular matrix.
+Algorithm
+1.	For each pivot row, eliminate non-zero entries below.
+2.	Update rows using multipliers.
+public class GaussianElimination {
+    public static void eliminate(double[][] A) {
+        int n = A.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                double factor = A[j][i] / A[i][i];
+                for (int k = i; k <= n; k++) {
+                    A[j][k] -= A[i][k] * factor;
+                }
+            }
+        }
+    }
+}
+FUNCTION eliminate(A)
+    FOR i FROM 0 TO n-2 DO
+        FOR j FROM i+1 TO n-1 DO
+            factor ← A[j][i] / A[i][i]
+            FOR k FROM i TO n DO
+                A[j][k] ← A[j][k] - A[i][k] * factor
+Analysis
+•	All Cases: O(n³).
+
+
+
+
+4. Gaussian Elimination
+Flow Chart
+1.	Start → Nested loops to perform row operations.
+2.	For each pivot, eliminate column entries below it.
+3.	End → Upper triangular matrix.
+Algorithm
+1.	For each pivot row, eliminate non-zero entries below.
+2.	Update rows using multipliers.
+public class GaussianElimination {
+    public static void eliminate(double[][] A) {
+        int n = A.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                double factor = A[j][i] / A[i][i];
+                for (int k = i; k <= n; k++) {
+                    A[j][k] -= A[i][k] * factor;
+                }
+            }
+        }
+    }
+}
+FUNCTION eliminate(A)
+    FOR i FROM 0 TO n-2 DO
+        FOR j FROM i+1 TO n-1 DO
+            factor ← A[j][i] / A[i][i]
+            FOR k FROM i TO n DO
+                A[j][k] ← A[j][k] - A[i][k] * factor
+Analysis
+•	All Cases: O(n³).

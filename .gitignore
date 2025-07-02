@@ -1,7 +1,7 @@
 ### IntelliJ IDEA ###
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+!assignment1/src/dsa/main/**/out/
+!assignment1/src/dsa/test/**/out/
 
 ### Eclipse ###
 .apt_generated
@@ -12,8 +12,8 @@ out/
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+!assignment1/src/dsa/main/**/bin/
+!assignment1/src/dsa/test/**/bin/
 
 ### NetBeans ###
 /nbproject/private/
