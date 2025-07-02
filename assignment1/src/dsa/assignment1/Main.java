@@ -87,7 +87,6 @@ public class Main {
             int number = Utils.readInt(scanner, prompt, 1, 100000000, false);
             switch (input){
                 case 6 :
-//                    later update this with countBinaryDigitsIteratively
                     result = Algorithms.countBinaryDigits(number);
                     System.out.println("Counting the binary digits of " + number + " iteratively gives " + result);
                     break;
@@ -101,12 +100,33 @@ public class Main {
             }
         }
         else if (input == 4){
-            prompt = "Enter the size for the row of the matrix:";
-            int row = Utils.readInt(scanner, prompt, 1, 5, false);
-            prompt = "Enter the size for the column of the matrix:";
-            int col = Utils.readInt(scanner, prompt, 1, 5, false);
-            double[][] matrix = Utils.readDoubleMatrix(scanner, row, col);
-            System.out.print("Obtained the matrix");
+            while ( true){
+                prompt = "Enter the size for the row of MatrixA:";
+                int row1 = Utils.readInt(scanner, prompt, 1, 5, false);
+                prompt = "Enter the size for the column of the matrixB:";
+                int col1 = Utils.readInt(scanner, prompt, 1, 5, false);
+                double[][] matrixA = Utils.readDoubleMatrix(scanner, row1, col1);
+
+                prompt = "Enter the size for the row of MatrixB:";
+                int row2 = Utils.readInt(scanner, prompt, 1, 5, false);
+                prompt = "Enter the size for the column of the matrixB:";
+                int col2 = Utils.readInt(scanner, prompt, 1, 5, false);
+//                later check for the compatibility before fetching the second matrix to avoid wasting time...
+                double[][] matrixB = Utils.readDoubleMatrix(scanner, row2, col2);
+
+                if (col1 != row2 ){
+                    System.out.println("Matrices cannot be multiplied due to their incompatible nature...");
+                    System.out.println(col1 + " columns of Matrix A is not equal to " + row2 + " rows of Matrix B" );
+                }
+                else{
+                    double[][] matrixAB = Algorithms.MatrixMultiplication(matrixA, matrixB);
+                    System.out.println("Final product of MatrixA * MatrixB: ");
+                    for (int i = 0; i < matrixAB.length; i++){
+                        System.out.println("ROW_" + i + Arrays.toString(matrixAB[i]));
+                    }
+                    break;
+                }
+            }
         }
     }
 }

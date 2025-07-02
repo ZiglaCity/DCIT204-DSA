@@ -1,5 +1,6 @@
 package dsa.algorithms;
 import dsa.algorithms.SearchAlgorithms;
+import dsa.utils.Utils;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -79,15 +80,22 @@ public class Algorithms {
         return num * factorial(num - 1);
     }
 
-//    public static double[][] MatrixMultiplication (double[][] matrixA, double[][] matrixB){
-//        int rowA = matrixA.length;
-//        int colA = matrixA[0].length;
-//        int rowB = matrixB.length;
-//        int colB = matrixB[0].length;
-//        return
-//
-//    }
+    public static double[][] MatrixMultiplication (double[][] matrixA, double[][] matrixB){
+        int rowA = matrixA.length;
+        int colA = matrixA[0].length;
+        int rowB = matrixB.length;
+        int colB = matrixB[0].length;
 
-
+        double[][] matrixAB = new double[rowA][colB];
+        for (int r = 0; r < rowA; r++){
+            for (int c = 0; c < colB; c++){
+                matrixAB[r][c] = 0.0;
+                for (int x = 0; x < colA; x++){
+                    matrixAB[r][c] += (matrixA[r][x] * matrixB[x][c]);
+                }
+            }
+        }
+        return matrixAB;
+    }
 
 }
