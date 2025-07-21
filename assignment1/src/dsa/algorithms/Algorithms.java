@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Algorithms {
-    public int Search (int[] integer_array, String[] string_array, int value, String target){
+    public int Search (Integer[] integer_array, String[] string_array, int value, String target){
 //        ask wah type of search algorithm the user wants to user
         System.out.println("Select the type of Search Algorithm to use...");
         System.out.print("1. Sequential Search on Integers \n2. Sequential Search on Strings \n3. Sort Digits");
@@ -18,7 +18,7 @@ public class Algorithms {
         return -1;
     }
 
-    public static int findMax(int[] array){
+    public static int findMax(Integer[] array){
         int max = array[0];
         for (int i = 1; i < array.length; i++){
             if (array[i] > max){
@@ -28,7 +28,7 @@ public class Algorithms {
         return max;
     }
 
-    public static boolean isUnique(int[] array) {
+    public static boolean isUnique(Integer[] array) {
         Set<Integer> seen = new HashSet<>();
         for (int num : array){
             if (!seen.add(num)){
@@ -98,7 +98,7 @@ public class Algorithms {
         return matrixAB;
     }
 
-    public static double[] GaussianElimination(double[][] A, int[] b){
+    public static double[] GaussianElimination(double[][] A, Integer[] b){
         int n = b.length;
 
         for (int p = 0; p < n; p++) {

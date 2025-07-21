@@ -30,7 +30,7 @@ public class Main {
         if (input == 1 || input == 2 || input == 9){
             prompt = "Input the size of the array to be used.";
             int size = Utils.readInt(scanner, prompt, 1, 10000, false);
-            int[] numbers = Utils.readIntArray(scanner, size);
+            Integer[] numbers = Utils.readIntArray(scanner, size);
             int result;
             switch (input){
                 case 1 :
@@ -136,7 +136,7 @@ public class Main {
             double[][] A = Utils.readDoubleMatrix(scanner, row, col);
 
             System.out.print("Input for the matrix b:");
-            int[] b = Utils.readIntArray(scanner, row);
+            Integer[] b = Utils.readIntArray(scanner, row);
             try {
                 double[] solution = Algorithms.GaussianElimination(A, b);
                 System.out.println("Solution:");

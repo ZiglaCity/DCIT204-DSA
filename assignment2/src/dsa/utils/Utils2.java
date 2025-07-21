@@ -29,6 +29,27 @@ public class Utils2 {
         }
     }
 
+    public static double readDouble(Scanner scanner, String prompt, int min, int max){
+        double input;
+
+        while (true){
+            System.out.println(prompt);
+            System.out.print("Input (" + min + "-" + max + "): ");
+            if (scanner.hasNextDouble()){
+                input = scanner.nextDouble();
+                scanner.nextLine();
+                if (input < min || input > max ){
+                    System.out.println(" \n Invalid Input!!\n   Input must be between " + min + " and " + max +" \n");
+                } else {
+                    return input;
+                }
+            } else {
+                System.out.println( " \n Invalid Input!!\n   That's not a number. Try again.\n");
+                scanner.next();
+            }
+        }
+    }
+
     public static String readString(Scanner scanner, String prompt){
         String input;
         System.out.println(prompt);
@@ -83,6 +104,35 @@ public class Utils2 {
         return strings;
     }
 
+    public static Double[] readDoubleArray (Scanner scanner, int size){
+        Double[] decimals = new Double[size];
+        while(true){
+            System.out.print("\n Input " + size + " decimals(separated by space or comma): ");
+            String input = scanner.nextLine();
+            String[] parts = input.trim().split("[,\\s]+");
+
+            if (parts.length != size) {
+                System.out.println(" Please enter exactly " + size + " numbers.");
+                continue;
+            }
+
+            boolean valid = true;
+            for (int i = 0; i < size; i++) {
+                try {
+                    decimals[i] = Double.parseDouble(parts[i]);
+                } catch (NumberFormatException e) {
+                    System.out.println("'" + parts[i] + "' is not a valid integer.");
+                    valid = false;
+                    break;
+                }
+            }
+            if (valid) {
+                break;
+            }
+        }
+        return decimals;
+    }
+
     public static double[][] readDoubleMatrix (Scanner scanner, int row, int col){
         double[][] matrix = new double[row][col];
         for ( int r = 0; r < row; r++ ) {
@@ -116,4 +166,5 @@ public class Utils2 {
         }
         return matrix;
     }
+
 }

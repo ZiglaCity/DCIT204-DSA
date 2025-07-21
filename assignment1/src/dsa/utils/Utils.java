@@ -37,8 +37,8 @@ public class Utils {
         return input;
     }
 
-    public static int[] readIntArray(Scanner scanner, int size) {
-        int[] numbers = new int[size];
+    public static Integer[] readIntArray(Scanner scanner, int size) {
+        Integer[] numbers = new Integer[size];
 
         while (true) {
             System.out.print("\n Input " + size + " numbers (comma or space separated): ");

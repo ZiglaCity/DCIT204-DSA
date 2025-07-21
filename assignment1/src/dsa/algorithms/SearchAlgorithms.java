@@ -3,7 +3,7 @@ package dsa.algorithms;
 import java.util.Objects;
 
 public class SearchAlgorithms {
-    public static int sequentialSearch (int[] array, int value){
+    public static int sequentialSearch (Integer[] array, int value){
         int i = 0;
         while (i < array.length && array[i] != value) {
             i += 1;
